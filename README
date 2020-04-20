@@ -1,0 +1,4 @@
+If doesn't exists already , create a volume named websitevolume
+sudo docker volume create websitevolume
+
+Follow steps in CLI and startapp.sh
