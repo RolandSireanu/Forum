@@ -1,0 +1,12 @@
+FROM mysql
+MAINTAINER Roland
+
+#COPY my.cnf /etc/mysql/
+
+ENV MYSQL_ROOT_PASSWORD root
+ENV MYSQL_DATABASE testapp
+
+
+EXPOSE 3306
+EXPOSE 33060
+

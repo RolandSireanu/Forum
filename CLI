@@ -1,0 +1,2 @@
+sudo docker run -d -v /home/sireanuroland/Works/WebDevelopment/PhpProject/www/:/var/www/site:z -p 8080:80 mysite
+
