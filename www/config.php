@@ -1,5 +1,6 @@
 <?php
-	define("DBHOST", "mysqlhost:3306");
+	#define("DBHOST", "mysqlhost:3306");
+	define("DBHOST" , "mysql_server:3306");
 	define("DBUSER" , "root");
 	define("DBPASS" , "root");
 
