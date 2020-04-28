@@ -1,3 +1,0 @@
-sudo docker run -d -it -p 8080:80 --name mywebsite --link mysql_server --mount source=websitevolume,destination=/var/www/site mysite2
-
-sudo docker cp ./www websitevolume:/var/www/sire

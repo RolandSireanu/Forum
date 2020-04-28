@@ -1,0 +1,128 @@
+body {
+    background-color: #7e7e8075;
+	width: 80%;
+	margin: auto;    	
+}
+
+.center {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  border: 1px solid black;  
+  background-color: #d6d6f5;
+  border-radius:  6px;
+  margin-top: 10px;
+  box-shadow: 5px 5px;
+}
+
+
+.userdata {
+
+	border-radius:  6px;
+	float: right;
+	border: 1px solid black; 
+	width: 20%;
+	height: 75px;
+	margin-top: 15px;
+	margin-right: 15px;
+	box-shadow: 3px 3px 2px #888888;
+
+
+}
+
+.imgclass {
+	float: left;
+}
+
+
+.tableclass {	
+    box-shadow: 5px 5px;
+  	width: 100%;	
+	border: 1px solid black;
+	margin-top: 15px;
+}
+
+.topicClass {
+	padding-left: 10px;
+	border: 1px solid black;
+	border-color:#e7e7f0 ; 
+	background-color: #e7e7f0;
+	height: 100%;
+}
+
+.discussionImg {
+	background-color:#cdcddd;
+}
+
+.topicImg {
+	background-color:#cdcddd;
+	margin-top: 3px;
+}
+
+.container {
+	background-color: #7486748f;
+	position: relative;
+	width: 100%;
+	border: 1px solid black;
+	margin-top:50px;
+	overflow: auto;
+	padding-top:20px;
+	padding-bottom:20px;
+}
+
+.posts {
+	width: 85%;
+	margin: auto;	
+	background-color: #97a197;
+}
+
+.post {		
+	border: 1px solid black;
+	background-color: #fffffa;
+}
+
+.postNr {
+	
+	font-size: 13px;
+    font-weight: normal;
+    padding-top: 8px;
+    padding-right:7px;
+    display: block;
+    float: right;
+}
+
+.postUser {
+	margin-top: 2px;
+	margin-bottom: 4px;
+	margin-left: 50px;
+}
+
+.datePost {
+	margin-top: 7px;
+	margin-left: 350px;
+}
+
+.imgUser {
+	float: left;
+	margin: 3px;
+}
+
+.userInfo {
+	float: left;
+	width: 148px;
+	background-color: #fffffacc;
+	margin-left: -26px;
+	/* border-left: 1px solid black; */
+	/* border-bottom: 1px solid black; */
+}
+
+.userComment {
+	margin-left: 150px;
+	background-color: #fffffacc;
+	min-height: 90px;
+	border-right: 1px solid black;
+	/* border-bottom: 1px solid black; */
+	border-left: 1px solid black;
+	padding: 3px;
+}
+

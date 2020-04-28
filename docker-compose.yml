@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  mywebsite:
+    image: mysite2
+    container_name: mywebsite
+    build:
+      context: ./ApacheDocker
+      dockerfile: Dockerfile
+    ports: 
+      - 8080:80
+    networks:
+      - internalnetwork
+    volumes:
+      - type: volume
+        source: websitevolume
+        target: /var/www/site
+  
+  mysqlserver:
+    image: sqlcontainer
+    container_name: mysql_server
+    build: 
+      context: ./MysqlDocker
+      dockerfile: Dockerfile
+    ports:
+      - 3306:3306
+    networks:
+      - internalnetwork
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - type: volume
+        source: mysqlvolume
+        target: /var/lib/mysql
+
+
+  phpadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpadmin
+    build:
+      context: ./PhpAdminDocker
+      dockerfile: Dockerfile
+    ports:
+      - 8081:80
+    networks:
+      - internalnetwork
+    environment:
+      - PMA_HOST=mysql_server
+      - PMA_PORT=3306
+
+
+networks:
+  internalnetwork:
+    driver: bridge
+
+volumes:
+  websitevolume:
+    external: true
+  mysqlvolume:
+

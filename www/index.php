@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"]))
         echo $pass;
         if(password_verify($pass , $passFromDB))
         {
-            header("Location: info.php");
+            header("Location: main.php");
         }
         else
         {
@@ -101,4 +101,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"]))
 	?>
 </div>
 </body>
+
 </html>                                		                            
