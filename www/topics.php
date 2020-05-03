@@ -1,3 +1,13 @@
+<?php
+	$discID = null;
+
+	if($_SERVER["REQUEST_METHOD"] == "GET")
+	{
+		$discID = $_GET["show"];
+	}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +29,20 @@
 	<tr style="height: 50px">
 		<td colspan="2" style="padding-left: 10px; border-width: 1px; border-color:#cdcddd ; background-color: #cdcddd; font-weight: 600;"> Topics </td>
 	</tr>
+
+	<?php
+
+		ini_set("display_errors" , 1);
+		ini_set('display_startup_errors', 1);
+		error_reporting(E_ALL);
+		include "ApiDB.php";	
+
+		try
+		{
+			foreach(GetTopicsFromDiscId($discID) as $topicsRow)
+			{				
+	?>
+
 	<tr>
 		<td width="8%" align="center" class="topicImg">
 			<svg class="bi bi-pencil-square topicImg" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -26,29 +50,19 @@
 			  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
 			</svg>
 		</td>
-		<td id="idGraphAlgorithms" class="topicClass">Graph algorithms </td>
+		<td id="<?php echo $topicsRow['TopicID'] ?>" class="directoryClass topics"> 
+			<?php echo $topicsRow["Name"] ?>
+		 </td>
 	</tr>
-	<tr>
-		<td width="8%" align="center" class="topicImg">
-			<svg class="bi bi-pencil-square topicImg" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-			  <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
-			  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
-			</svg>
-		</td>
-		<td class="topicClass">Sorting </td>
-	</tr>
-	<tr>		
-		<td width="8%" align="center" class="topicImg">
-			<svg class="bi bi-pencil-square topicImg" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-			  <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
-			  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
-			</svg>
-		</td>
-		<td class="topicClass">Searching </td>
-	</tr>
+	<?php }
+		}
+		catch(Exception $e)
+		{
+			echo "Caught exception : ", $e->getMessage(), "\n";
+		}
+	?>
 </table>
 
 </body>
 <script src="animations.js"></script>
 </html>
-

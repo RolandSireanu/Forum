@@ -50,6 +50,22 @@ body {
 	height: 100%;
 }
 
+.discussionsClass {
+	padding-left: 10px;
+	border: 1px solid black;
+	border-color:#e7e7f0 ; 
+	background-color: #e7e7f0;
+	height: 100%;
+}
+
+.directoryClass {
+	padding-left: 10px;
+	border: 1px solid black;
+	border-color:#e7e7f0 ; 
+	background-color: #e7e7f0;
+	height: 100%;	
+}                                                                                                
+
 .discussionImg {
 	background-color:#cdcddd;
 }

@@ -17,7 +17,7 @@ RUN sed -i "s/short_open_tag = Off/short_open_tag = On/" /etc/php/7.0/apache2/ph
 RUN sed -i "s/error_reporting = .*$/error_reporting = E_ERROR | E_WARNING | E_PARSE/" /etc/php/7.0/apache2/php.ini
 
 COPY php.ini /etc/php/7.0/apache2/
-
+COPY .htaccess /var/www/site
 #RUN echo "session.save_path = /sessions" >> /etc/php/7.0/apache2/php.ini
 #RUN echo "session.auto_start = 1" >>  /etc/php/7.0/apache2/php.ini
 
