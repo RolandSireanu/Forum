@@ -22,6 +22,12 @@ $(".topics").click(function(e) {
 
 	var i = $(this).attr("id");
 	window.location.assign("posts.php?show=".concat(i));
-
-
 })
+
+// $("#newTopic").hover(function(){
+// 	$(this).prop('src' , 'images/ButtonHover.png')
+// })
+
+// $("#newTopic").mouseleave(function(){
+// 	$(this).prop('src' , 'images/Button.png')
+// })

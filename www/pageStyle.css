@@ -1,6 +1,6 @@
 body {
     background-color: #7e7e8075;
-	width: 80%;
+	width: 60%;
 	margin: auto;    	
 }
 
@@ -40,6 +40,7 @@ body {
   	width: 100%;	
 	border: 1px solid black;
 	margin-top: 15px;
+	border-spacing: 0px;
 }
 
 .topicClass {
@@ -141,4 +142,45 @@ body {
 	border-left: 1px solid black;
 	padding: 3px;
 }
+
+.newTopicButton {
+    background: #cccccc;    
+    border-radius: 9px;
+    border: none;
+    box-shadow: 0px 5px #444444;
+    padding: 6px 9px;
+    color: #ffffff;
+    display: inline-block;
+    font: normal bold 16px/1 "Open Sans", sans-serif;
+    text-align: center;
+    transition: 0.1s;
+    cursor: pointer;
+    margin-right: 75px;
+    margin-top: 7px;
+    outline: none;    
+}
+
+
+
+.newTopicButton:focus {
+
+	box-shadow: 0px 1px #444444;
+	transform: translateY(4px);	
+}
+
+.newTopic {
+	display: grid;
+	grid-template-rows: 10% 10% 10% auto 10%;
+	box-shadow: 5px 5px;
+  	width: 100%;	
+  	height: 325px;
+	border: 1px solid black;
+	margin-top: 55px;
+	border-spacing: 0px;
+	background-color: #e7e7f0;
+	justify-content: stretch;
+
+}
+
+
 
