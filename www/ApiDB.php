@@ -41,9 +41,12 @@
 		}
 		else
 		{
-			echo "Result set is null ";
+			
+			echo "Result set is null ".$arg_discID;
 			return null;
 		}
+
+		$resultSet->close();
 	}
 
 	function GetPostsTopicID($arg_topicID)
@@ -65,8 +68,49 @@
 			echo "Topics dataset invalid ! ";
 			return null;
 		}
+
+		$resultSet->close();
 	}
 	
+	function AddPost($arg_discID , $arg_userID , $arg_subject , $arg_message)
+	{
+		global $db;
+
+		// if(!$db->query("CALL InsertTopic($arg_discID , @msg)"))
+		if($db->query("CALL InsertTopic($arg_discID , '$arg_subject' , '$arg_message' , $arg_userID)") == FALSE)
+		{
+			echo "CALL failed: (" . $db->errno . ") " . $db->error;
+		}
+
+		// $resultSet = $db->query("CALL GetTopicBySubject('$arg_subject')");
+
+		// echo "result set has number of rows = ".$resultSet->num_rows;
+
+		// if($resultSet == False)
+		// {
+		// 	echo "ERRRRRRRRRRRRRRRRRROR ! ";
+		// }
+		// else
+		// {
+		// 	echo "Toate bune ! ";
+		// }
+
+		// if($resultSet != null)
+		// {
+		// 	$row = $resultSet->fetch_assoc();
+		// 	$newAddedTopicID = $row["TopicID"];
+
+		// 	echo "newAddedTopicID = ".$newAddedTopicID;
+
+		// }
+		// else
+		// {
+		// 	echo "Error , dataset is null 878643 ! ";
+		// }
+
+		// $resultSet->close();
+	}
+
 	/*
 	try
 	{

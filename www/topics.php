@@ -13,12 +13,14 @@
 	{
 		$discID = $_GET["show"];
 	}
-	else if(($_SERVER["REQUEST_METHOD"] == "POST") && isset($_POST["subject"]) && isset($_POST["message"]))
-	{
-		echo "I will add this message into the db ! ";
-		$discID = $_GET["show"];
-	}
 
+	if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["subject"]) && isset($_POST["message"]))
+	{
+		$discID = $_POST["show"];
+		echo "I will add this message into the db ! ";		
+		AddPost($discID , 1 , $_POST["subject"] , "The best!");	
+		header('Location: topics.php?show='.$discID);
+	}
 ?>
 
 <!DOCTYPE html>
@@ -55,12 +57,20 @@
 		 </td>
 	</tr>
 
-	<?php			
-
+	<?php					
 		try
 		{
-			foreach(GetTopicsFromDiscId($discID) as $topicsRow)
-			{				
+			$counter = 0;
+
+			$genTopics = GetTopicsFromDiscId($discID);
+			
+			// $v = $genTopics->current();
+			// echo "genTopics->current =".$v["Name"];
+
+
+			foreach($genTopics as $topicsRow)
+			{			
+			
 	?>
 
 	<tr>
@@ -86,7 +96,7 @@
 
 
 <div class="newTopic">
-	<form action="<?php echo 'topics.php?show='. $discID; ?>" method="POST">		
+	<form action='topics.php' method="POST">		
 		<div style="margin-left: 138px; font-size:20px; margin-top:20px;">Subject : </div>		
 		<div style="justify-self: stretch; text-align:center;">
 			<input type="text" name="subject" value="" style="margin-left:50px; width:75%;">
@@ -94,6 +104,7 @@
 		<div style="margin-left: 138px; font-size:20px;">Comment : </div>
 		<div style="text-align:center; justify-self: stretch;">
 			<textarea name="message" rows="10" style="margin-left:50px; width:75%;">Comment here ... </textarea>
+			<input type="hidden" name="show" value="<?php echo $discID; ?>">
 		</div>
 		<div style="text-align:right; justify-self: stretch;">
 			<button type="submit" class="newTopicButton">New topic</button>
