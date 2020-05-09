@@ -16,9 +16,8 @@
 	else if(($_SERVER["REQUEST_METHOD"] == "POST") && isset($_POST["subject"]) && isset($_POST["message"]))
 	{
 		echo "I will add this message into the db ! ";
-		$discID = $_POST["show"];
+		$discID = $_GET["show"];
 	}
-	else if(($_SERVER["REQUEST_METHOD"] == "POST") && !
 
 ?>
 
