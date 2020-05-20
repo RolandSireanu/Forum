@@ -1,4 +1,5 @@
 <?php
+	include "startCheckSession.php";
 
 	$topicID = null;
 

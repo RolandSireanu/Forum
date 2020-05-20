@@ -1,6 +1,7 @@
 <?php 
 
 include "config.php"; 
+session_start();
 
 $errMsg = null;
 
@@ -8,7 +9,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"]))
 {
     $usr = $_POST["usr"];
     $pass = $_POST["pass"];
-    
 
     $sql = "SELECT * FROM Users WHERE username='$usr'";
     $result = $db->query($sql);
@@ -21,6 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"]))
         echo $pass;
         if(password_verify($pass , $passFromDB))
         {
+            $_SESSION["username"] = $usr;
             header("Location: main.php");
         }
         else
@@ -28,7 +29,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"]))
             #echo "Buba";
             $errMsg = "Wrong username or password ! ";
         }
-        
     }
     else
     {

@@ -1,6 +1,7 @@
 <?php
 	
 	include "ApiDB.php";	
+	include "startCheckSession.php";
 
 	ini_set("display_errors" , 1);
 	ini_set('display_startup_errors', 1);
@@ -34,9 +35,19 @@
 <body>
 
 <div class="center">
-  <div class="userdata">
-  	<img src="images/unknown.png" width="25%" class="imgclass">
-  	<span>user:Rld </span>
+	<h1 style="float:left; margin-top:35px; margin-left:80px; font-family:calibri; font-size:50px"> Forum IT </h1>
+  <div class="userdata">	  
+	  <div class="userInfo">
+
+		  <div class="avatar">
+			  <div style="text-align:center;" width="100%" height="100%">
+			   <img src="images/unknown.png" width="50px" height="50px" class="imgclass">			  
+			  </div>
+		  </div>
+		  <div class="username">
+			  <div style="margin:5px; text-align:center; font-size:12px;"><?php echo $_SESSION['username'] ?> </div>
+		  </div>	  
+	  </div>	
   </div>
 </div>
 
@@ -51,9 +62,9 @@
 			</svg>
 
 		</td>
-		<td colspan="1" style="padding-left: 10px;  background-color: #cdcddd; font-weight: 600; border-bottom: 1px solid black;" 
+		<td colspan="1" style="padding-left: 10px; font-weight: 600; border-bottom: 1px solid black;" 
 		    width="70%"> Topics </td>
-		<td style="background-color: #cdcddd; border-bottom: 1px solid black;" align="center"> 
+		<td style="border-bottom: 1px solid black;" align="center"> 
 			Last modified 
 		 </td>
 	</tr>
@@ -96,24 +107,30 @@
 
 
 
-<div class="newTopic">
+<!-- <div class="newTopic">
+<div class="insideNewTopic">
 	<form action='topics.php' method="POST">		
 		<div style="margin-left: 138px; font-size:20px; margin-top:20px;">Subject : </div>		
 		<div style="justify-self: stretch; text-align:center;">
-			<input type="text" name="subject" value="" style="margin-left:50px; width:75%;">
+			<input type="text" name="subject" value="" style="margin-left:50px; width:75%;" class="styleInput">
 		</div>
 		<div style="margin-left: 138px; font-size:20px;">Comment : </div>
 		<div style="text-align:center; justify-self: stretch;">
-			<textarea name="message" rows="10" style="margin-left:50px; width:75%;">Comment here ... </textarea>
+			<textarea name="message" rows="10" style="margin-left:50px; width:75%;" class="">Comment here ... </textarea>
 			<input type="hidden" name="show" value="<?php echo $discID; ?>">
 		</div>
 		<div style="text-align:right; justify-self: stretch;">
-			<button type="submit" class="newTopicButton">New topic</button>
-
-			
+			<button type="submit" class="newTopicButton">New topic</button>			
 		</div>
 	</form>
 </div>
+</div> -->
+
+<div class="newTopic">
+		
+
+</div>
+
 
 </body>
 <script src="animations.js"></script>
